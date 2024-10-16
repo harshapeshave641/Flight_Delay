@@ -76,13 +76,14 @@ def app():
             st.error(f"Airline '{airline}' not found in dataset.")
             return
 
-        input_df = pd.DataFrame([input_data], columns=df_crack.columns)
-        input_df = input_df[X_train_balanced_2.columns]
-        input_reshaped = input_df.values.reshape(1, 1, input_df.shape[1]).astype(np.float32)
+
         choices = [0, 1]
         weights = [0.85, 0.15]
         # Try predicting
         try:
+            input_df = pd.DataFrame([input_data], columns=df_crack.columns)
+            input_df = input_df[X_train_balanced_2.columns]
+            input_reshaped = input_df.values.reshape(1, 1, input_df.shape[1]).astype(np.float32)
             # Use the feature_extractor model
             extracted_features = feature_extractor_2.predict(input_reshaped)
             st.write("Extracted Features:", extracted_features)
