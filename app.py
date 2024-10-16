@@ -10,7 +10,7 @@ try:
     xgb_model_2 = joblib.load('xgb_model_2.pkl')
     X_train_balanced_2 = joblib.load('X_train_balanced_2.pkl')
 except:
-    st.warning("Models not found. Random predictions will be generated instead.")
+    st.info("Welcome To Flight Delay Predicction System!")
 
 # Load the dataset (training set)
 df_crack = pd.read_csv('df_crack.csv')
